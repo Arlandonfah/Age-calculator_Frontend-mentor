@@ -1,0 +1,240 @@
+:root {
+    --Purple : hsl(259, 100%, 65%);
+    --LigthRed : hsl(0, 100%, 67%);
+    --White : hsl(0, 0%, 100%);
+    --OffWhite : hsl(0, 0%, 94%);
+    --LightGrey : hsl(0, 0%, 86%);
+    --SmokeGrey : hsl(0, 1%, 44%);
+    --OffBlack : hsl(0, 0%, 8%);
+    --PoppinsRegular : Poppins Regular; 
+    --PoppinsItalic : Poppins Italic; 
+    --PoppinsBold : Poppins Bold; 
+    --PoppinsBoldItalic : Poppins Bold Italic; 
+    --PoppinsExtrabold : Poppins Extrabold; 
+    --PoppinsExtraboldItalic : Poppins Extrabold Italic; 
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Poppins Regular;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: Poppins Italic;
+    src: url(../fonts/Poppins-Italic.ttf);
+}
+@font-face {
+    font-family: Poppins Bold;
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: Poppins Bold Italic;
+    src: url(../fonts/Poppins-BoldItalic.ttf);
+}
+@font-face {
+    font-family: Poppins Extrabold;
+    src: url(../fonts/Poppins-ExtraBold.ttf);
+}
+@font-face {
+    font-family: Poppins Extrabold Italic;
+    src: url(../fonts/Poppins-ExtraBoldItalic.ttf);
+}
+body {
+    font-family: var(--PoppinsRegular);
+    background: var(--OffWhite);
+    color: var(--OffBlack);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    background: var(--White);
+    padding: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-bottom-right-radius: 8rem;
+}
+.card .form form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.card .form form .inputs {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    color: var(--SmokeGrey);
+}
+.card .form form .inputs .input {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+.card .form form .inputs .input label {
+    text-transform: uppercase;
+    font-family: var(--PoppinsBold);
+    font-size: .6rem;
+    letter-spacing: .2rem;
+    transition: .5s ease;
+}
+.card .form form .inputs .input label.error {
+    color: var(--LigthRed);
+}
+.card .form form .inputs .input input {
+    font-family: var(--PoppinsBold);
+    padding: .5rem .7rem;
+    font-size: 1.3rem;
+    width: 6.5rem;
+    border: 1px solid var(--LightGrey);
+    border-radius: .35rem;
+    color: var(--OffBlack);
+    transition: .5s ease;
+}
+.card .form form .inputs .input input.error {
+    border: 1px solid var(--LigthRed);
+}
+.card .form form .inputs .input input::-webkit-outer-spin-button,
+.card .form form .inputs .input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.card .form form .inputs .input input[type="number"] {
+    -moz-appearance: textfield;
+}
+.card .form form .inputs .input input[type="number"]:focus {
+    outline: none;
+    border: 1px solid var(--Purple);
+}
+.card .form form .inputs .input .required,
+.card .form form .inputs .input .invalid,
+.card .form form .inputs .input .invalidDate,
+.card .form form .inputs .input .futureDate {
+    font-size: .7rem;
+    color: var(--LigthRed);
+    font-family: var(--PoppinsItalic);
+    margin-block: .2rem;
+    display: none;
+    transition: .5s ease;
+    line-height: .7;
+}
+.card .form form .inputs .input .required.show,
+.card .form form .inputs .input .invalid.show,
+.card .form form .inputs .input .invalidDate.show,
+.card .form form .inputs .input .futureDate.show {
+    display: block;
+}
+.card .form form button[type="submit"] {
+    align-self: flex-end;
+    margin-left: 4rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    border: none;
+    background: var(--Purple);
+    margin-left: 25rem;
+    z-index: 1;
+    cursor: pointer;
+    transition: .4s ease;
+}
+.card .form form button[type="submit"]:hover {
+    background: var(--OffBlack);
+}
+.card .form form::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--LightGrey);
+    bottom: 2rem;
+    z-index: 0;
+}
+.card .form form button svg {
+    width: 1.8rem;
+    height: auto;
+}
+.card .results {
+    font-size: 2rem;
+    font-family: var(--PoppinsExtraboldItalic);
+    line-height: 1;
+    color: var(--OffBlack);
+}
+.card .results .result h1 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: .5s ease;
+}
+.card .results .result h1 span {
+    color: var(--Purple);
+    transition: .5s ease;
+}
+
+.numberContainer {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: 1em;
+    overflow: hidden;
+    width: fit-content;
+}
+.numbers {
+    font-size: inherit;
+    font-family: var(--ProductSansBold);
+    transition: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+.numbers.isGenerated {
+    transform: translateY(-81.8%);
+    transition: 2s ease;
+}
+.numbers.months.isGenerated {
+    transition: 1.5s ease;
+}
+.numbers.days.isGenerated {
+    transition: 1.5s ease;
+}
+
+@media only screen and (max-width:560px) {
+    .card {
+        padding: 5vw;
+        border-bottom-right-radius: 6rem;
+    }
+    .card .form form {
+        gap: 1rem;
+        align-items: center;
+    }
+    .card .form form::after {
+        bottom: 1.5rem;
+    }
+    .card .form form .inputs {
+        flex-wrap: wrap;
+        gap: .7rem;
+    }
+    .card .form form .inputs .input input {
+        max-width: 6.4rem;
+        width: 5rem;
+        padding: .5rem .7rem;
+        font-size: 1rem;
+    }
+    .card .form form button[type="submit"] {
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        align-self: center;
+    }
+    .card .form form button svg {
+        width: 1.5rem;
+    }
+    .card .results {
+        font-size: 1.5rem;
+        margin-block: 1rem;
+    }
+}
